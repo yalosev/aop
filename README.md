@@ -20,4 +20,5 @@ $ kubectl get cm pod-monitor-config -o jsonpath='{.data}'
 $ kubectl scale deployment test --replicas=1
 $ kubectl get cm pod-monitor-config -o jsonpath='{.data}'
 # Output: {"pods.json":"[\"test-848844fd9-zc257\", \"test-344545df4-gr24c\"]\n"}
+# value has not been removed
 ```

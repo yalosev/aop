@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: addon-operator
+  namespace: addon-operator
+  labels:
+    app: addon-operator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: addon-operator
+  template:
+    metadata:
+      labels:
+        app: addon-operator
+    spec:
+      containers:
+        - name: aop
+          image: ylosev/aop:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 9115
+              name: metrics
+              protocol: TCP
+          env:
+            - name: ADDON_OPERATOR_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+      serviceAccountName: addon-operator-acc

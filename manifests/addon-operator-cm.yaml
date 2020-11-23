@@ -1,0 +1,10 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    heritage: addon-operator
+  name: addon-operator
+  namespace: addon-operator
+data:
+  global: ""

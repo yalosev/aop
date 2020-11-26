@@ -52,13 +52,13 @@ for IND in `seq 0 $ARRAY_COUNT`; do
               # seems like replace also doesnt work...
           else
               echo "JSON PATCH: [{\"op\":\"add\", \"path\":\"/podMonitor/pods/-\", \"value\":\"$podName\"}]"
-              echo "[{\"op\":\"add\", \"path\":\"/podMonitor/pods/-\", \"value\":\"$podName\"}]" > ${VALUES_JSON_PATCH_PATH}
+              echo "[{\"op\":\"add\", \"path\":\"/podMonitor/pods/-\", \"value\":\"$podName\"}]" >> ${VALUES_JSON_PATCH_PATH}
           fi
       elif [[ ${resourceEvent} == "Deleted" ]]; then
           echo "Pod ${podName}: ${arrayIndex} has been deleted"
           if [[ "$arrayIndex" -ge "0" ]]; then
             echo "JSON PATCH: [{ \"op\": \"remove\", \"path\": \"/podMonitor/pods/${arrayIndex}\" }]"
-            echo "[{ \"op\": \"remove\", \"path\": \"/podMonitor/pods/${arrayIndex}\" }]" > ${VALUES_JSON_PATCH_PATH}
+            echo "[{ \"op\": \"remove\", \"path\": \"/podMonitor/pods/${arrayIndex}\" }]" >> ${VALUES_JSON_PATCH_PATH}
           fi
       fi
   else

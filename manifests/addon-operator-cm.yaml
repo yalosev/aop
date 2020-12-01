@@ -8,3 +8,13 @@ metadata:
   namespace: addon-operator
 data:
   global: ""
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    heritage: addon-operator
+  name: test
+  namespace: addon-operator
+data:
+  global: "ku"

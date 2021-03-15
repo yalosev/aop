@@ -1,6 +1,0 @@
-podMonitorEnabled: true
-podMonitor:
-  pods:
-    - stub1
-    - stub2
-    - stub3

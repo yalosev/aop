@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+echo "Enabled script started"
+
+echo "Instances config path $(jq -r '.myModule.instances' $CONFIG_VALUES_PATH)"
+echo "Instances merged path $(jq -r '.myModule.instances' $VALUES_PATH)"
+
+echo "COUNT config values: $(jq -r '.myModule.instances | length' $CONFIG_VALUES_PATH)"
+echo "COUNT values: $(jq -r '.myModule.instances | length' $VALUES_PATH)"
+
+count=$(jq -r '.myModule.instances | length' $CONFIG_VALUES_PATH)
+
+if [[ $count -eq 0 ]] ; then
+  echo "false" > $MODULE_ENABLED_RESULT
+else
+  echo "true" > $MODULE_ENABLED_RESULT
+fi

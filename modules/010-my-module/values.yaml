@@ -1,0 +1,6 @@
+myModuleEnabled: true
+myModule:
+  instances:
+    - stub1
+    - stub2
+    - stub3
